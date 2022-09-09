@@ -1,0 +1,44 @@
+div {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+
+
+table{
+    table-layout: fixed;
+    
+
+}
+
+#pave
+{
+    width: 20%;
+    border-collapse: collapse;
+    border: 3px solid rgb(0, 0, 0);
+
+}
+
+table#pave td{
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+form {
+    width: 20%;
+}
+
+
+.verrouillé {
+    background-color: gray;
+}
+
+.erreur{
+    text-align: center;
+    width: 20%;
+    color: #D8000C;
+    background-color: #FFBABA;
+}
