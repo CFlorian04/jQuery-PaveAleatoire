@@ -69,7 +69,7 @@ $(
 				}
 				else
 				{
-					$("p.erreur").show().text("Le code ne peut contenir que 4 chiffres");
+					$("p.erreur").show().text("Le code ne peut contenir que 4 chiffres.");
 				}
 
 		});
@@ -81,6 +81,21 @@ $(
 				code_clear();
 				attribution();
 			
+		});
+
+
+		$("#envoyer").click(
+			function() {
+				
+				if($("nom").val() != null && $("prenom").val() != null)
+				{
+
+				}
+				else
+				{
+					$("p.erreur").show().text("Tous les champs ne sont pas remplis.");
+				}
+					
 		});
 	}
 );
