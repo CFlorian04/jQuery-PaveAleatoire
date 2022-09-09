@@ -1,34 +1,31 @@
-div {
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
+div{
+    width: 300px;
 }
 
+h2{
 
+    text-align: center;
+}
 
 table{
+    text-align: center;
     table-layout: fixed;
-    
-
 }
 
-#pave
-{
-    width: 20%;
+#pave{
+    width: 100%;
     border-collapse: collapse;
     border: 3px solid rgb(0, 0, 0);
 
 }
 
 table#pave td{
-    padding: 20px;
+    font-size: 150%;
+    width: 25%;
+    height: 25%;
+    padding: 10px;
     text-align: center;
-}
-
-
-
-form {
-    width: 20%;
+    cursor: pointer;
 }
 
 
@@ -38,7 +35,7 @@ form {
 
 .erreur{
     text-align: center;
-    width: 20%;
+    width: 100%;
     color: #D8000C;
     background-color: #FFBABA;
 }
