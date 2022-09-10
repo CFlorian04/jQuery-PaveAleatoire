@@ -2,14 +2,14 @@
 var taille = 0;
 var code = "";
 
+
+//Attribue les valeurs du tableau aléatoirement entre les cases du pavé
 function attribution() {
-	//Attribue les valeurs du tableau aléatoirement entre les cases du pavé
 	var alea;
 	var tableau = ["0","1","2","3","4","5","6","7","8","9"," "," "]
 	$('table#pave tr td').each(
 		function(index) {
-			$(this).removeClass();
-			console.log(tableau);
+			
 
 			alea = Math.floor(Math.random() * (12-index));
 			$(this).text(tableau[alea]);
@@ -22,7 +22,9 @@ function attribution() {
 	});
 }
 
+//Supprime le code et reinitialise les variables et attributs des objets
 function code_clear() {
+	$('table#pave tr td').removeClass();
 	code = "";
 	taille = 0;
 	$("p.erreur").hide();
@@ -43,10 +45,14 @@ $(
 
 				if(taille<=4)
 				{
-					$("p#erreur").css('visibility','hidden');
+
 					code += $(this).text();
 					$('table#code tr td input').val(code);
-					if(taille == 4) { $('#envoyer').prop("disabled",false); }
+
+					if(taille == 4) 
+					{ 
+						$('#envoyer').prop("disabled",false); 
+					}
 				}
 				else
 				{
@@ -67,21 +73,18 @@ $(
 		$("#envoyer").click(
 			function() {
 
-				console.log($("#nom").val());
-				console.log($("#prenom").val());
+			if($("#nom").val() != "" && $("#prenom").val() != "")
+			{
+				$("p.erreur").css('visibility','hidden')
+				//Envoyer le Formulaire
+				alert('La connexion a été effectué !')
 				
-				if($("#nom").val() != "" && $("#prenom").val() != "")
-				{
-					$("p.erreur").css('visibility','hidden')
-					//Envoyer le Formulaire
-					alert('La connexion a été effectué !')
-					
-				}
-				else
-				{
-					$("p.erreur").css('visibility','visible').text("Tous les champs ne sont pas remplis.");
-				}
-					
+			}
+			else
+			{
+				$("p.erreur").css('visibility','visible').text("Tous les champs ne sont pas remplis.");
+			}
+				
 		});
 
 		$('#pave td').mouseover(function(){
@@ -91,16 +94,6 @@ $(
 		$('#pave td').mouseout(function(){
 			$(this).css("text-decoration", "");
 		});
-
-
-		$('button').mouseover(function(){
-			$(this).css("background-color", "lightgray");
-		  });
-
-		$('button').mouseout(function(){
-			$(this).css("background-color", "white");
-		});
-
 
 	}
 );
