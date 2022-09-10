@@ -1,14 +1,4 @@
 
-HTMLElement.prototype.hide = function() {
-    this.style.visibility = 'hidden';  
-    return this;
-}
-
-HTMLElement.prototype.show = function() {
-    this.style.visibility = 'visible';  
-    return this;
-}
-
 var taille = 0;
 var code = "";
 
@@ -19,8 +9,6 @@ function attribution() {
 	$('table#pave tr td').each(
 		function(index) {
 			$(this).removeClass();
-			$(this).css("color","black");
-
 			console.log(tableau);
 
 			alea = Math.floor(Math.random() * (12-index));
@@ -55,29 +43,21 @@ $(
 
 				if(taille<=4)
 				{
-					$("p#erreur").hide();
+					$("p#erreur").css('visibility','hidden');
 					code += $(this).text();
-
-					$(this).css("color","green");
 					$('table#code tr td input').val(code);
-
-					if(taille == 4)
-					{
-						$('#envoyer').prop("disabled",false);
-					}
-
+					if(taille == 4) { $('#envoyer').prop("disabled",false); }
 				}
 				else
 				{
-					$("p.erreur").show().text("Le code ne peut contenir que 4 chiffres.");
+					$("p.erreur").css('visibility','visible').text("Le code ne peut contenir que 4 chiffres.");
 				}
-
 		});
-
 
 
 		$('#relancer').click(
 			function() {
+				
 				code_clear();
 				attribution();
 			
@@ -86,16 +66,41 @@ $(
 
 		$("#envoyer").click(
 			function() {
-				
-				if($("nom").val() != null && $("prenom").val() != null)
-				{
 
+				console.log($("#nom").val());
+				console.log($("#prenom").val());
+				
+				if($("#nom").val() != "" && $("#prenom").val() != "")
+				{
+					$("p.erreur").css('visibility','hidden')
+					//Envoyer le Formulaire
+					alert('La connexion a été effectué !')
+					
 				}
 				else
 				{
-					$("p.erreur").show().text("Tous les champs ne sont pas remplis.");
+					$("p.erreur").css('visibility','visible').text("Tous les champs ne sont pas remplis.");
 				}
 					
 		});
+
+		$('#pave td').mouseover(function(){
+			$(this).css("text-decoration", "underline");
+		  });
+
+		$('#pave td').mouseout(function(){
+			$(this).css("text-decoration", "");
+		});
+
+
+		$('button').mouseover(function(){
+			$(this).css("background-color", "lightgray");
+		  });
+
+		$('button').mouseout(function(){
+			$(this).css("background-color", "white");
+		});
+
+
 	}
 );
