@@ -1,4 +1,3 @@
-
 var taille = 0;
 var code = "";
 
